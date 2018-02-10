@@ -6,8 +6,6 @@ class ATM:
     def withdraw(self, request):
         # allowed papers: 100, 50, 10, 5, and cents
 
-        remaining_balance = self.balance - request
-
         print("Welcome to " + self.bank_name)
         print("Current balance = %d" % self.balance)
 
@@ -20,31 +18,35 @@ class ATM:
             print("More than zero plz!")
 
         else:
-            while request > 0:
-
-                if request >= 100:
-                    request -= 100
-                    print("give 100")
-
-                elif request >= 50:
-                    request -= 50
-                    print("give 50")
-
-                elif request >= 10:
-                    request -= 10
-                    print("give 10")
-
-                elif request >= 5:
-                    request -= 5
-                    print("give 5")
-
-                elif request < 5:
-                    print("give " + str(request))
-                    request = 0
+            ATM.process_request(request)
 
         print("=" * 15)
 
-        self.balance = remaining_balance
+        self.balance -= request
+
+    @classmethod
+    def process_request(cls, request):
+        while request > 0:
+
+            if request >= 100:
+                request -= 100
+                print("give 100")
+
+            elif request >= 50:
+                request -= 50
+                print("give 50")
+
+            elif request >= 10:
+                request -= 10
+                print("give 10")
+
+            elif request >= 5:
+                request -= 5
+                print("give 5")
+
+            elif request < 5:
+                print("give " + str(request))
+                request = 0
 
 
 if __name__ == '__main__':
