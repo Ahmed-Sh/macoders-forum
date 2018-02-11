@@ -24,8 +24,8 @@ class ATM:
 
         print(sep + "\n")
 
-    @classmethod
-    def process_request(cls, request):
+    @staticmethod
+    def process_request(request):
         alowed_papers = [100, 50, 10, 5, 2, 1]
         for paper in alowed_papers:
             while request >= paper:
