@@ -1,12 +1,14 @@
 class ATM:
+
     def __init__(self, balance, bank_name):
         self.balance = balance
         self.bank_name = bank_name
+        self.withdrawals_list = []
 
     def withdraw(self, request):
         # allowed papers: 100, 50, 10, 5, and cents
 
-        sep = "=" * 40
+        sep = "=" * 35
         print("Welcome to " + self.bank_name)
         print("Current balance = %d" % self.balance)
 
@@ -20,9 +22,14 @@ class ATM:
 
         else:
             self.balance -= request
+            self.withdrawals_list.append(request)
             ATM.process_request(request)
 
         print(sep + "\n")
+
+    def show_withdrawals(self):
+        for withdrawal in self.withdrawals_list:
+            print(withdrawal)
 
     @staticmethod
     def process_request(request):
