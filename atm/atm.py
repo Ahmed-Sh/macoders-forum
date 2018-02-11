@@ -32,8 +32,7 @@ class ATM:
             print(withdrawal)
 
     @staticmethod
-    def process_request(request):
-        alowed_papers = [100, 50, 10, 5, 2, 1]
+    def process_request(request, alowed_papers=[100, 50, 10, 5, 2, 1]):
         for paper in alowed_papers:
             while request >= paper:
                 print('give ' + str(paper))
