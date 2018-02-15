@@ -5,7 +5,7 @@ class Member:
         self.age = age
 
     def __str__(self):
-        return self.name
+        return "Name: {}, Age: {}".format(self.name, self.age)
 
 
 class Post:
@@ -15,4 +15,4 @@ class Post:
         self.content = content
 
     def __str__(self):
-        return self.title
+        return "Title: {}, Content: {}".format(self.title, self.content)
