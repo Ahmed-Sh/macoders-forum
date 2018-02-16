@@ -18,6 +18,17 @@ class MemberStore:
                 return member
         return None
 
+    def entity_exists(self, member):
+        result = True
+
+        if self.get_by_id(member.id) is None:
+            result = False
+        return result
+
+    def delete(self, id):
+        member = self.get_by_id(id)
+        MemberStore.members.remove(member)
+
 
 class PostStore:
     posts = []
@@ -38,3 +49,14 @@ class PostStore:
             if id == post.id:
                 return post
         return None
+
+    def entity_exists(self, post):
+        result = True
+
+        if self.get_by_id(post.id) is None:
+            result = False
+        return result
+
+    def delete(self, id):
+        post = self.get_by_id(id)
+        PostStore.posts.remove(post)
