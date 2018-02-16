@@ -13,10 +13,14 @@ class MemberStore:
         return MemberStore.members
 
     def get_by_id(self, id):
+        result = None
+
         for member in MemberStore.members:
             if id == member.id:
-                return member
-        return None
+                result = member
+                break
+
+        return result
 
     def entity_exists(self, member):
         result = True
