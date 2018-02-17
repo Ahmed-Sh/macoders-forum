@@ -14,8 +14,9 @@ class MemberStore:
 
     def get_by_id(self, id):
         result = None
+        all_members = self.get_all()
 
-        for member in MemberStore.members:
+        for member in all_members:
             if id == member.id:
                 result = member
                 break
