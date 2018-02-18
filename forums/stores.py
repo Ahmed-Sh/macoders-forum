@@ -38,6 +38,16 @@ class MemberStore:
         all_members = self.get_all()
         MemberStore.members = [member if member.id == current_member.id else current_member for current_member in all_members]
 
+    def get_by_name(self, name):
+        all_members = self.get_all()
+        result = []
+
+        for member in all_members:
+            if member.name == name:
+                result.append(member)
+
+        return result
+
 
 class PostStore:
     posts = []
