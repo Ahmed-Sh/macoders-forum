@@ -34,6 +34,10 @@ class MemberStore:
         member = self.get_by_id(id)
         MemberStore.members.remove(member)
 
+    def update(self, member):
+        all_members = self.get_all()
+        MemberStore.members = [member if member.id == current_member.id else current_member for current_member in all_members]
+
 
 class PostStore:
     posts = []
@@ -65,3 +69,7 @@ class PostStore:
     def delete(self, id):
         post = self.get_by_id(id)
         PostStore.posts.remove(post)
+
+    def update(self, post):
+        all_posts = self.get_all()
+        PostStore.posts = [post if post.id == current_post.id else current_post for current_post in all_posts]
