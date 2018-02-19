@@ -24,11 +24,7 @@ class MemberStore:
         return result
 
     def entity_exists(self, member):
-        result = True
-
-        if self.get_by_id(member.id) is None:
-            result = False
-        return result
+        return self.get_by_id(member.id) is not None
 
     def delete(self, id):
         member = self.get_by_id(id)
@@ -70,11 +66,7 @@ class PostStore:
         return None
 
     def entity_exists(self, post):
-        result = True
-
-        if self.get_by_id(post.id) is None:
-            result = False
-        return result
+        return self.get_by_id(post.id) is not None
 
     def delete(self, id):
         post = self.get_by_id(id)

@@ -75,8 +75,8 @@ member1, member2, member3 = members_instances
 
 member_store = stores.MemberStore()
 
-
 get_by_name_should_retrieve_all_members_with_name(member_store, "Abdo")
+
 store_should_add_models(members_instances, member_store)
 
 stores_should_be_similar()
