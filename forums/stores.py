@@ -1,3 +1,7 @@
+import itertools
+import copy
+
+
 class MemberStore:
     members = []
     last_id = 1
@@ -43,6 +47,17 @@ class MemberStore:
                 result.append(member)
 
         return result
+
+    def get_members_with_posts(self, posts):
+        all_members = copy.deepcopy(self.get_all())
+        all_product = itertools.product(all_members, posts)
+
+        for member, post in all_product:
+            if member.id == post.member_id:
+                member.posts.append(post)
+
+        for member in all_members:
+            yield member
 
 
 class PostStore:
