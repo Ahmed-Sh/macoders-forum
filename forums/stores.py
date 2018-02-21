@@ -36,7 +36,11 @@ class MemberStore:
 
     def update(self, member):
         all_members = self.get_all()
-        MemberStore.members = [member if member.id == current_member.id else current_member for current_member in all_members]
+
+        for index, current_member in enumerate(all_members):
+            if member.id == current_member.id:
+                all_members[index] = member
+                break
 
     def get_by_name(self, name):
         all_members = self.get_all()
@@ -97,4 +101,8 @@ class PostStore:
 
     def update(self, post):
         all_posts = self.get_all()
-        PostStore.posts = [post if post.id == current_post.id else current_post for current_post in all_posts]
+
+        for index, current_post in enumerate(all_posts):
+            if post.id == current_post.id:
+                all_posts[index] = post
+                break
