@@ -56,8 +56,16 @@ class MemberStore:
             if member.id == post.member_id:
                 member.posts.append(post)
 
-        for member in all_members:
-            yield member
+        return (member for member in all_members)
+
+    def get_top_two(self, posts):
+        members_with_posts = list(self.get_members_with_posts(posts))
+
+        members_with_posts.sort(
+            key=lambda member: len(member.posts), reverse=True)
+
+        yield members_with_posts[0]
+        yield members_with_posts[1]
 
 
 class PostStore:

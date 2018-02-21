@@ -120,6 +120,7 @@ def store_should_get_top_two(member_store, post_store):
         for post in member_with_posts.posts:
             print(f"\t{post}")
 
+
 members_instances = create_members()
 member1, member2, member3 = members_instances
 
