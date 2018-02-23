@@ -1,6 +1,5 @@
 import models
 import stores
-from time import sleep
 
 
 def create_members():
@@ -78,13 +77,10 @@ def catch_exception_when_deleting():
 def create_posts(members_instances):
 
     post1 = models.Post("Agriculture", "Agriculture is amazing", members_instances[0].id)
-    sleep(5)
     post2 = models.Post("Engineering", "I love engineering", members_instances[0].id)
-    sleep(5)
     post3 = models.Post("Medicine", "Medicine is great", members_instances[1].id)
-    sleep(5)
+    
     post4 = models.Post("Architecture", "Spectacular art", members_instances[1].id)
-    sleep(5)
     post5 = models.Post("Astronomy", "Space is awesome", members_instances[1].id)
 
     post6 = models.Post("Geology", "Earth is our friend", members_instances[2].id)
