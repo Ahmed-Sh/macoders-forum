@@ -81,4 +81,4 @@ class PostStore(BaseStore):
     def get_posts_by_date(self):
         all_posts = self.get_all()
         all_posts.sort(key=lambda post: post.date, reverse=True)
-        return all_posts
+        return (post for post in all_posts)
